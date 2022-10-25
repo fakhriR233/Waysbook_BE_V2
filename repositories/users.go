@@ -39,7 +39,7 @@ func (r *repository) GetUser(ID int) (models.User, error) {
   }
 
 func (r *repository) UpdateUser(user models.User, ID int) (models.User, error) {
-	err := r.db.Preload("Transaction").Raw("UPDATE users SET full_name=?, email=?, password=? WHERE id=?", user.FullName, user.Email, user.Password,ID).Scan(&user).Error
+	err := r.db.Preload("Transaction").Raw("UPDATE users SET full_name=?, email=?, password=?, status=? WHERE id=?", user.FullName, user.Email, user.Password, user.Status,ID).Scan(&user).Error
   
 	return user, err
   }
