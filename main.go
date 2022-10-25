@@ -2,6 +2,8 @@ package main
 
 import (
 	"_waysbook/database"
+	"os"
+
 	// "_waysbook/handlers"
 	"_waysbook/pkg/mysql"
 	"_waysbook/routes"
@@ -40,7 +42,7 @@ func main() {
 	// fmt.Println("server running localhost:5000")
 	// http.ListenAndServe("localhost:5000", r)
 
-	var port = "5000"
+	var port = os.Getenv("PORT");
 	fmt.Println("server running localhost:"+port)
-	http.ListenAndServe("localhost:"+port, handlers.CORS(AllowedHeaders, AllowedMethods, AllowedOrigins)(r))
+	http.ListenAndServe(":"+port, handlers.CORS(AllowedHeaders, AllowedMethods, AllowedOrigins)(r))
 }
