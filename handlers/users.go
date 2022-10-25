@@ -128,6 +128,12 @@ func (h *handlerUser) GetUser(w http.ResponseWriter, r *http.Request) {
 		  user.Password = userDataOld.Password
 	  }
 
+	  if request.Status != "" {
+		user.Status = request.Status
+	  }else {
+		  user.Status = userDataOld.Status
+	  }
+
 	//   if request.Book != "" {
 	// 	user.Book = request.Book
 	//   }else {

@@ -17,4 +17,5 @@ type UpdateUserRequest struct {
   Phone 		int `json:"phone" form:"phone" validate:"required"`
   Address 		string `json:"address" form:"address" validate:"required"`
   Avatar 		string `json:"avatar" form:"avatar" validate:"required"`
+  Status 		string `json:"status" form:"status"`
 }
